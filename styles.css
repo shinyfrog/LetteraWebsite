@@ -165,7 +165,7 @@ a { color: inherit; text-decoration: none; }
 /* ============================================================
    Hero
    ============================================================ */
-.hero { padding: 96px 0 40px; text-align: center; overflow: hidden; }
+.hero { padding: 96px 0 0px; text-align: center; overflow: hidden; }
 .hero-inner { display: flex; flex-direction: column; align-items: center; }
 .hero-title {
   font-size: clamp(3rem, 8vw, 4.75rem);
@@ -209,7 +209,7 @@ a { color: inherit; text-decoration: none; }
    so it needs no frame, radius, or box-shadow of its own */
 .hero-shot {
   position: relative;
-  margin-top: 24px;
+  margin-top: 7em;
   width: 100%;
   max-width: 1080px;
   margin-inline: auto;
@@ -336,124 +336,21 @@ mark.hl-purple { background: var(--hl-purple); color: inherit; padding: 1px 2px;
   margin-inline: auto;
   grid-template-areas:
     "recap  check"
-    "small  table"
-    "small  table";
+    "code  table"
+    "math"
+    "attach"
 }
 .bento-card {
   background: var(--card);
   border-radius: var(--radius-md);
-  padding: 26px 28px;
   box-shadow: var(--shadow-card);
   min-width: 0;   /* allow grid items to shrink below their content size */
 }
-.bento-recap { grid-area: recap; }
-.bento-check { grid-area: check; }
-.bento-table { grid-area: table; }
+.bento-recap { max-width: 542px; }
+.bento-check { max-width: 340px; }
+.bento-code, .bento-math, .bento-attach  { max-width: 342px; }
+.bento-table { width: 511px; height: 415px; }
 /* the three small cards live in the "small" column, stacked */
-.bento-code, .bento-math, .bento-attach { grid-column: 1; }
-
-/* Meeting recap */
-.recap-title { font-size: 1.6rem; font-weight: 700; color: var(--ink-soft); margin-bottom: 14px; }
-.recap-body { font-size: 1.05rem; line-height: 1.6; color: var(--ink-soft); }
-.recap-body em { font-style: italic; }
-.recap-links { margin-top: 16px; font-size: 1.05rem; color: var(--ink-soft); }
-.recap-links a { color: var(--accent); font-weight: 600; margin-left: 8px; }
-.recap-links a:hover { text-decoration: underline; }
-.caret {
-  display: inline-block;
-  width: 2px; height: 1.05em;
-  background: #3d69a7;
-  margin-left: 1px;
-  transform: translateY(2px);
-  animation: blink 1.05s steps(2, start) infinite;
-}
-@keyframes blink { 50% { opacity: 0; } }
-
-/* Checklist */
-.checklist { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 16px; }
-.checklist li {
-  display: flex; align-items: center; gap: 12px;
-  font-size: 1.05rem; color: var(--ink-soft);
-}
-.checklist .box {
-  flex: 0 0 auto;
-  width: 22px; height: 22px;
-  border: 2px solid #c7d2dd;
-  border-radius: 6px;
-  display: grid; place-items: center;
-  font-size: .8rem; color: transparent;
-}
-.checklist .done .box { background: var(--accent); border-color: var(--accent); color: #fff; }
-.checklist .done { }
-.checklist .dim { color: var(--muted-2); text-decoration: line-through; }
-.checklist .dim .box { background: #b9c6d3; border-color: #b9c6d3; }
-
-/* Code */
-.bento-code pre {
-  margin: 0; font-family: var(--mono); font-size: 1.02rem;
-  background: #f3f5f7; border-radius: 10px; padding: 18px 20px;
-  overflow-x: auto; color: var(--ink-soft);
-}
-.tok-fn  { color: #6f42c1; }
-.tok-str { color: #1d7d3f; }
-
-/* Math */
-.bento-math { display: flex; flex-direction: column; justify-content: center; }
-.math-label { font-size: 1.02rem; color: var(--ink-soft); margin-bottom: 10px; }
-.math-expr {
-  font-family: var(--mono); font-size: 1.45rem; color: var(--ink-soft);
-  display: flex; align-items: center; gap: 2px;
-}
-.math-expr .paren { font-size: 1.9rem; font-weight: 300; }
-.math-expr sup { font-size: .62em; }
-.frac {
-  display: inline-flex; flex-direction: column; align-items: center;
-  font-size: .62em; line-height: 1; margin: 0 4px; vertical-align: middle;
-}
-.frac .num { border-bottom: 1.5px solid currentColor; padding: 0 4px 2px; }
-.frac .den { padding: 2px 4px 0; }
-
-/* Attachment */
-.bento-attach { display: flex; align-items: center; }
-.file-chip { display: flex; align-items: center; gap: 14px; }
-.file-badge {
-  flex: 0 0 auto;
-  min-width: 46px; height: 32px;
-  padding: 0 10px;
-  border-radius: 7px;
-  background: #f3f5f7; color: #8a8a8a;
-  display: grid; place-items: center;
-  font-size: .78rem; font-weight: 700; letter-spacing: .04em;
-}
-.file-meta { display: flex; flex-direction: column; gap: 4px; }
-.file-name { font-size: 1.05rem; font-weight: 600; color: var(--ink-soft); word-break: break-word; }
-.file-sub  { font-size: .9rem; color: #888; }
-
-/* Mac tips table */
-.table-title { font-size: 1.4rem; font-weight: 700; color: var(--ink-soft); }
-.table-sub { margin: 6px 0 18px; font-size: 1rem; color: var(--ink-soft); }
-.tips-table { width: 100%; border-collapse: separate; border-spacing: 0; table-layout: fixed; }
-.tips-table th, .tips-table td {
-  text-align: left; padding: 12px 12px;
-  font-size: 1.02rem; color: var(--ink-soft);
-}
-.tips-table th { font-weight: 700; }
-/* zebra striping: header + alternating rows get the light-grey fill (matches design) */
-.tips-table thead th { background: #f3f5f7; }
-.tips-table thead th:first-child { border-radius: 8px 0 0 8px; }
-.tips-table thead th:last-child  { border-radius: 0 8px 8px 0; }
-.tips-table tbody tr:nth-child(even) td { background: #f3f5f7; }
-.tips-table tbody tr:nth-child(even) td:first-child { border-radius: 8px 0 0 8px; }
-.tips-table tbody tr:nth-child(even) td:last-child  { border-radius: 0 8px 8px 0; }
-.tips-table td:last-child, .tips-table th:last-child { text-align: right; }
-kbd {
-  display: inline-block;
-  font-family: var(--font);
-  font-size: .8rem; font-weight: 600;
-  padding: 3px 8px; margin-left: 4px;
-  background: #f1f4f6; border: 1px solid var(--line);
-  border-radius: 6px; color: #56616e;
-}
 
 /* ============================================================
    Section 3 — Know your document
@@ -604,14 +501,14 @@ kbd {
 }
 .footer-inner {
   display: grid;
-  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 2fr) minmax(0, 0.5fr) minmax(0, 0.5fr);
   gap: 40px;
 }
-.footer-brand { display: flex; align-items: flex-start; gap: 14px; }
+.footer-brand { display: flex; align-items: flex-start; gap: 20px; }
 .footer-icon { width: 46px; height: 46px; border-radius: 11px; }
-.footer-brand p { font-size: 1.25rem; font-weight: 600; line-height: 1.4; color: rgba(255,255,255,.92); }
+.footer-brand p { font-size: 1.1rem; font-weight: 600; line-height: 1.4; color: rgba(255,255,255,.92); }
 .footer-brand strong { font-weight: 700; }
-.footer-col h4 { font-size: 1.25rem; font-weight: 600; margin-bottom: 18px; }
+.footer-col h4 { font-size: 1.25rem; font-weight: 600; margin-bottom: 18px;  }
 .footer-col a {
   display: block;
   font-size: 1rem;
@@ -626,7 +523,13 @@ kbd {
   padding-top: 26px;
   border-top: 1px solid rgba(255,255,255,.12);
 }
-.footer-bottom p { font-size: 1rem; color: rgba(255,255,255,.55); }
+.footer-bottom p { font-size: 1rem; color: rgba(255,255,255,.55); text-align: center;}
+.footer-bottom p img { 
+
+  width: auto;
+  display: inline;
+  margin-bottom: -5px;
+}
 
 /* ============================================================
    Reveal on scroll
@@ -695,7 +598,7 @@ kbd {
 
   .faq-item summary { font-size: 1.12rem; }
 
-  .bento-card { padding: 22px 20px; }
+  .bento-card { }
   .tips-table th, .tips-table td { font-size: .86rem; padding: 10px 2px; }
   .tips-table td:last-child { line-height: 2.1; }   /* let keys wrap neatly */
   kbd { font-size: .68rem; padding: 2px 5px; margin-left: 3px; }

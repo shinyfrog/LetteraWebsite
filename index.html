@@ -16,7 +16,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
 
-  <link rel="icon" type="image/png" href="" />
+  <link rel="icon" type="image/png" href="assets/footer-icon@1x.png" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -82,70 +82,34 @@
         <div class="bento">
           <!-- Meeting Recap -->
           <article class="bento-card bento-recap">
-            <h3 class="recap-title">Meeting Recap</h3>
-            <p class="recap-body">
-              Discussed the Q3 roadmap with the team. Final deadline is
-              <em>October 15th</em>. Key decision: use <mark class="hl-green">the new API</mark>
-              endpoint going forward.<span class="caret" aria-hidden="true"></span>
-            </p>
-            <p class="recap-links">Docs:
-              <a href="#" onclick="return false">Shared doc</a>
-              <a href="#" onclick="return false">Github PR</a>
-            </p>
+            <img src="assets/bento/markdown@1x.png" srcset="assets/bento/assets/bento/markdown@1x.png 1x, assets/bento/markdown@2x.png 2x" alt="full markdown support in Lettera"/>
           </article>
 
           <!-- Checklist -->
           <article class="bento-card bento-check">
-            <ul class="checklist">
-              <li class="done"><span class="box">✓</span> Design layout review</li>
-              <li class="done dim"><span class="box">✓</span> Write unit tests</li>
-              <li><span class="box"></span> Deploy to staging</li>
-              <li><span class="box"></span> QA signoff</li>
-            </ul>
+           <img src="assets/bento/checkbox@1x.png" srcset="assets/bento/assets/bento/checkbox@1x.png 1x, assets/bento/checkbox@2x.png 2x" alt="Checkboxes and Todos support in Lettera"/>
           </article>
 
           <!-- Code -->
           <article class="bento-card bento-code">
-            <pre><code><span class="tok-fn">print</span>(<span class="tok-str">"Hello, world!"</span>)</code></pre>
-          </article>
-
-          <!-- Math -->
-          <article class="bento-card bento-math">
-            <p class="math-label">Compound interest formula:</p>
-            <p class="math-expr">
-              A = P&thinsp;<span class="paren">(</span>1 +
-              <span class="frac"><span class="num">r</span><span class="den">n</span></span>
-              <span class="paren">)</span><sup>nt</sup>
-            </p>
-          </article>
-
-          <!-- Attachment -->
-          <article class="bento-card bento-attach">
-            <div class="file-chip">
-              <span class="file-badge">PDF</span>
-              <div class="file-meta">
-                <span class="file-name">brand_guidelines_final_final</span>
-                <span class="file-sub">54&nbsp;KB &bull; 30 Mar 2026</span>
-              </div>
-            </div>
+           <img src="assets/bento/code@1x.png" srcset="assets/bento/assets/bento/code@1x.png 1x, assets/bento/code@2x.png 2x" alt="Inline code support in Lettera"/>
           </article>
 
           <!-- Mac Tips table -->
           <article class="bento-card bento-table">
-            <h3 class="table-title">Mac Tips for Beginners</h3>
-            <p class="table-sub">A list of useful macOS keyboard shortcuts:</p>
-            <table class="tips-table">
-              <thead>
-                <tr><th>Action</th><th>Shortcuts</th></tr>
-              </thead>
-              <tbody>
-                <tr><td>Spotlight search</td><td><kbd>⌘</kbd><kbd>Space</kbd></td></tr>
-                <tr><td>Force quit app</td><td><kbd>⌘</kbd><kbd>⌥</kbd><kbd>esc</kbd></td></tr>
-                <tr><td>Screenshot</td><td><kbd>⌘</kbd><kbd>⇧</kbd><kbd>4</kbd></td></tr>
-                <tr><td>Export to PDF</td><td><kbd>⌘</kbd><kbd>E</kbd></td></tr>
-              </tbody>
-            </table>
+           <img src="assets/bento/table@1x.png" srcset="assets/bento/assets/bento/table@1x.png 1x, assets/bento/table@2x.png 2x" alt="Tables in Lettera"/>
           </article>
+          
+          <!-- Math -->
+          <article class="bento-card bento-math">
+           <img src="assets/bento/math@1x.png" srcset="assets/bento/assets/bento/math@1x.png 1x, assets/bento/math@2x.png 2x" alt="Mathjax and Latex support in Lettera"/>
+          </article>
+
+          <!-- Attachment -->
+          <article class="bento-card bento-attach">
+           <img src="assets/bento/attachment@1x.png" srcset="assets/bento/assets/bento/attachment@1x.png 1x, assets/bento/attachment@2x.png 2x" alt="Inline attachments in Lettera"/>
+          </article>
+
         </div>
       </div>
     </section>
@@ -271,25 +235,25 @@
   <footer class="site-footer">
     <div class="container footer-inner">
       <div class="footer-brand">
-        <img src="assets/app-icon.png" alt="" class="footer-icon" />
+        <img src="assets/footer-icon@1x.png" srcset="assets/footer-icon@1x.png 1x, assets/footer-icon@2x.png 2x" alt="Lettera icon" class="footer-icon"/>
         <p>Your writing starts with<br /><strong>Lettera.</strong></p>
       </div>
 
       <nav class="footer-col" aria-label="Support">
         <h4>Support</h4>
-        <a href="#">Forum</a>
+        <a href="https://community.bear.app/c/lettera/18">Forum</a>
         <a href="mailto:lettera-support@shinyfrog.net">Email</a>
       </nav>
 
       <nav class="footer-col" aria-label="Company">
         <h4>Company</h4>
-        <a href="#">About</a>
-        <a href="#">Contact us</a>
+        <a href="https://shinyfrog.net">About</a>
+        <a href="mailto:shinyfrog@shinyfrog.net">Contact us</a>
         <a href="https://bear.app" target="_blank" rel="noopener">Discover Bear</a>
       </nav>
     </div>
     <div class="container footer-bottom">
-      <p>Shiny Frog &copy; 2026</p>
+      <p><img src="assets/sf-logo@1x.png" srcset="assets/sf-logo@1x.png 1x, assets/sf-logo@2x.png 2x" alt="Shiny Frog logo"/> Shiny Frog &copy; 2026</p>
     </div>
   </footer>
 
