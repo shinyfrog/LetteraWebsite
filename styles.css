@@ -25,6 +25,9 @@
   --hl-purple: #f8dcfd;
   --footer-bg: #141313;   /* near-black footer */
 
+  --success:   #1d7d3f;   /* form success message */
+  --error:     #d9382f;   /* form error message */
+
   --radius-lg: 32px;
   --radius-md: 18px;
   --radius-sm: 10px;
@@ -437,9 +440,10 @@ a { color: inherit; text-decoration: none; }
   text-align: center;
   margin-top: 16px;
   font-weight: 600;
-  color: #1d7d3f;
+  color: var(--success);
   min-height: 1.4em;
 }
+.signup-msg.is-error { color: var(--error); }
 
 /* ============================================================
    Footer
