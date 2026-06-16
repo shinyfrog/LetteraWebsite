@@ -1,1 +1,7 @@
 .DS_Store
+
+# Playwright / dev screenshots
+.playwright-mcp/
+*-full.png
+page-*.png
+screenshot-*.png
