@@ -350,14 +350,14 @@ mark.hl-purple { background: var(--hl-purple); color: inherit; padding: 1px 2px;
 }
 
 .bento.top {
-  grid-template-columns: 2fr, 1fr;
+  grid-template-columns: 2fr 1fr;
   grid-template-areas:
   "recap  check";
 }
 
 .bento.bottom {
   padding-top: 0px;
-  grid-template-columns: 1fr, 2fr;
+  grid-template-columns: 1fr 2fr;
   grid-template-areas:
   "code   table"
   "math   table"
