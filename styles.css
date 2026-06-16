@@ -68,6 +68,15 @@ body {
 img { max-width: 100%; display: block; }
 a { color: inherit; text-decoration: none; }
 
+/* ---------- keyboard focus ---------- */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+/* the email field carries its own focus ring (border + glow) */
+.signup input:focus-visible { outline: none; }
+
 .container {
   width: 100%;
   max-width: var(--container);
