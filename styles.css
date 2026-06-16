@@ -116,82 +116,6 @@ a { color: inherit; text-decoration: none; }
 .btn-lg { --pad-y: 16px; padding-inline: 34px; font-size: var(--fs-button); }
 
 /* ============================================================
-   Header
-   ============================================================ */
-.site-header {
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  background: rgba(255,255,255,.82);
-  backdrop-filter: saturate(180%) blur(14px);
-  -webkit-backdrop-filter: saturate(180%) blur(14px);
-  border-bottom: 1px solid transparent;
-  transition: border-color .25s var(--ease), box-shadow .25s var(--ease);
-}
-.site-header.scrolled {
-  border-color: var(--line);
-  box-shadow: 0 4px 20px rgba(36,38,41,.04);
-}
-.header-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 68px;
-}
-.brand { display: inline-flex; align-items: center; gap: 10px; }
-.brand-icon { width: 30px; height: 30px; border-radius: 8px; }
-.brand-name { font-weight: 800; font-size: 1.25rem; letter-spacing: -.02em; }
-.nav { display: flex; gap: 30px; }
-.nav a {
-  font-weight: 600;
-  font-size: .98rem;
-  color: var(--muted);
-  transition: color .15s var(--ease);
-}
-.nav a:hover { color: var(--ink); }
-.header-actions { display: flex; align-items: center; gap: 12px; }
-
-/* hamburger */
-.nav-toggle {
-  display: none;
-  flex-direction: column;
-  justify-content: center;
-  gap: 5px;
-  width: 42px; height: 42px;
-  background: transparent;
-  border: 0;
-  cursor: pointer;
-  padding: 10px;
-}
-.nav-toggle span {
-  display: block;
-  height: 2px;
-  width: 100%;
-  background: var(--ink);
-  border-radius: 2px;
-  transition: transform .25s var(--ease), opacity .2s var(--ease);
-}
-.nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-.nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
-.nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
-.mobile-menu {
-  display: none;
-  flex-direction: column;
-  gap: 4px;
-  padding: 12px 24px 22px;
-  border-top: 1px solid var(--line);
-  background: #fff;
-}
-.mobile-menu a {
-  font-weight: 600;
-  color: var(--ink);
-  padding: 12px 4px;
-  border-radius: 10px;
-}
-.mobile-menu a.btn { color: #fff; margin-top: 8px; justify-content: center; }
-
-/* ============================================================
    Hero
    ============================================================ */
 .hero { padding: 96px 0 0px; text-align: center; overflow: hidden; }
@@ -250,14 +174,6 @@ a { color: inherit; text-decoration: none; }
   margin-inline: auto;
 }
 .hero-shot img { width: 100%; display: block; }
-/* SVG overlay: colored state diagram + blue bullets, scales 1:1 with the image */
-.hero-shot-overlay {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-}
 /* fade the bottom of the window into the page, as in the design */
 .hero-shot::after {
   content: "";
@@ -335,28 +251,6 @@ a { color: inherit; text-decoration: none; }
   border-radius: var(--radius-md) var(--radius-md) 0 0;
   box-shadow: var(--shadow-mock);
 }
-
-/* Rococo document mock */
-.doc-mock {
-  width: 100%;
-  max-width: 420px;
-  background: #fff;
-  border-radius: 16px 16px 0 0;
-  box-shadow: var(--shadow-mock);
-  overflow: hidden;
-  text-align: left;
-}
-.win-dots { display: flex; gap: 7px; padding: 15px 16px 4px; }
-.win-dots i { width: 11px; height: 11px; border-radius: 50%; background: #e0e0e0; }
-.win-dots i:nth-child(1) { background: #ff5f57; }
-.win-dots i:nth-child(2) { background: #febc2e; }
-.win-dots i:nth-child(3) { background: #28c840; }
-.doc-body { padding: 14px 26px 30px; }
-.doc-title { font-size: 1.3rem; font-weight: 700; color: var(--ink-soft); margin-bottom: 12px; }
-.doc-para { font-size: .92rem; line-height: 1.65; color: var(--ink-soft); margin-bottom: 10px; }
-.footref { color: var(--accent); font-weight: 600; }
-mark.hl-green  { background: var(--hl-green);  color: inherit; padding: 1px 2px; border-radius: 3px; }
-mark.hl-purple { background: var(--hl-purple); color: inherit; padding: 1px 2px; border-radius: 3px; }
 
 /* ============================================================
    Section 2 — bento grid
@@ -590,16 +484,6 @@ mark.hl-purple { background: var(--hl-purple); color: inherit; padding: 1px 2px;
 }
 
 /* ============================================================
-   Reveal on scroll
-   ============================================================ */
-.reveal {
-  opacity: 0;
-  transform: translateY(26px);
-  transition: opacity .7s var(--ease), transform .7s var(--ease);
-}
-.reveal.in { opacity: 1; transform: none; }
-
-/* ============================================================
    Responsive
    ============================================================ */
 @media (max-width: 900px) {
@@ -619,14 +503,8 @@ mark.hl-purple { background: var(--hl-purple); color: inherit; padding: 1px 2px;
   "code"
   "math"
   "attach"
-  "table";    
+  "table";
   }
-  .bento-recap { grid-area: recap; }
-  .bento-check { grid-area: check; }
-  .bento-code  { grid-area: code; }
-  .bento-math  { grid-area: math;   }
-  .bento-attach { grid-area: attach;  }
-  .bento-table { grid-area: table;  }
 
   .know-card { grid-template-columns: minmax(0, 1fr); }
   .know-visual { height: 360px; padding: 44px 44px 0; }
@@ -637,10 +515,6 @@ mark.hl-purple { background: var(--hl-purple); color: inherit; padding: 1px 2px;
 }
 
 @media (max-width: 760px) {
-  .nav { display: none; }
-  .header-actions .btn-sm { display: none; }
-  .nav-toggle { display: flex; }
-
   .dual-grid { grid-template-columns: minmax(0, 1fr); }
   .showcase-card { padding: 32px 28px 0; }
   .showcase-visual { height: 300px; }
@@ -664,11 +538,6 @@ mark.hl-purple { background: var(--hl-purple); color: inherit; padding: 1px 2px;
   .footer-inner { grid-template-columns: minmax(0, 1fr); gap: 36px; }
 }
 
-/* When the mobile menu is open, neutralise the [hidden] attr */
-.mobile-menu:not([hidden]) { display: flex; }
-
 @media (prefers-reduced-motion: reduce) {
-  .reveal { opacity: 1; transform: none; transition: none; }
-  .caret { animation: none; }
   html { scroll-behavior: auto; }
 }
