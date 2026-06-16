@@ -5,3 +5,7 @@
 *-full.png
 page-*.png
 screenshot-*.png
+
+# Sketch binaries — source of truth lives in the shared drive, not git.
+# Commit derived artifacts under design/ instead (DESIGN.md, preview.png, palette).
+*.sketch
