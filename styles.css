@@ -257,7 +257,7 @@ a { color: inherit; text-decoration: none; }
    ============================================================ */
 .dual-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 2fr));
   gap: 28px;
 }
 .showcase-card {
@@ -280,7 +280,6 @@ a { color: inherit; text-decoration: none; }
 .showcase-visual {
   position: relative;
   margin-top: 30px;
-  height: 330px;            /* masks the mockup to a fixed window, as in the design */
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -418,6 +417,8 @@ mark.hl-purple { background: var(--hl-purple); color: inherit; padding: 1px 2px;
   background: #dde4ec;
   transform: translateX(-50%);
 }
+
+.more-item.right { padding-left: 4em; }
 .more-item h3 { font-size: 1.875rem; font-weight: 700; color: var(--ink); }
 .more-item p { margin-top: 10px; font-size: 1.125rem; font-weight: 500; color: var(--muted-2); }
 .center-cta { text-align: center; margin-top: 48px; }
@@ -436,17 +437,7 @@ mark.hl-purple { background: var(--hl-purple); color: inherit; padding: 1px 2px;
   font-weight: 600;
   color: var(--ink);
 }
-.faq-item summary::-webkit-details-marker { display: none; }
-.faq-item summary::after {
-  content: "";
-  position: absolute;
-  right: 4px; top: 50%;
-  width: 12px; height: 12px;
-  border-right: 2.5px solid var(--muted);
-  border-bottom: 2.5px solid var(--muted);
-  transform: translateY(-65%) rotate(45deg);
-  transition: transform .25s var(--ease);
-}
+
 .faq-item[open] summary::after { transform: translateY(-35%) rotate(-135deg); }
 .faq-answer { padding: 0 44px 28px 0; }
 .faq-answer p { font-size: 1.125rem; font-weight: 500; color: var(--muted-2); }
@@ -456,6 +447,7 @@ mark.hl-purple { background: var(--hl-purple); color: inherit; padding: 1px 2px;
 /* ============================================================
    Section 6 — Newsletter
    ============================================================ */
+.newsletter { padding-top: 0em; }
 .newsletter .section-head { margin-bottom: 32px; }
 .signup {
   display: flex;
@@ -584,6 +576,7 @@ mark.hl-purple { background: var(--hl-purple); color: inherit; padding: 1px 2px;
   .more-grid::before { display: none; }   /* no divider when stacked */
 
   .br-desktop { display: none; }
+  .more-item.right { padding-left: 0em; }
 }
 
 @media (max-width: 560px) {
