@@ -234,58 +234,36 @@ centred and unhurried, over dense multi-column packing.
 
 ## Conformance audit
 
-Findings from a 5-track review of the shipped code against this system, prioritised.
-File:line references are to `index.html` / `styles.css` / `script.js`.
+A 5-track review compared the shipped code against this system. The
+`design-system-refactor` branch then resolved the findings in thin commits.
 
-### P0 — shipping bugs (functional breakage)
+### Resolved
 
-1. **Bento `srcset` 1× paths are doubled** → `assets/bento/assets/bento/…@1x.png`.
-   Images break on non-retina displays. `index.html:90, 95, 103, 108, 113, 117`.
-2. **`grid-template-columns: 2fr, 1fr` / `1fr, 2fr`** — commas are invalid in grid track
-   lists; the declaration is dropped and the bento 2:1 / 1:2 ratios silently collapse.
-   `styles.css:344, 351` → use `2fr 1fr` / `1fr 2fr`.
-3. **Know-card image wrapper has no class** (`<div class="">`), so all `.know-visual`
-   styling (height mask, 35 px corner, fade) is dead. `index.html:135`.
-4. **Showcase image class mismatch** — markup uses `.showcase-visual`, CSS sizes
-   `.showcase-visual--image img`, so the 80 %-width/radius/shadow never apply.
-   `styles.css:303` vs `index.html:60, 71`.
+- **P0 — bento images broken** (doubled `assets/bento/assets/bento/…@1x.png` srcset). Fixed.
+- **P0 — bento grid columns voided** by invalid commas (`2fr, 1fr`) → `2fr 1fr` / `1fr 2fr`.
+- **P0 — know-card / showcase visuals unstyled** (selectors the markup never set) — wired
+  `.know-visual` and pointed image CSS at `.showcase-visual img`.
+- **P1 — colour tokens** realigned to source: `--accent` #226cf7→#1874d3, `--surface`
+  #f1f4f6→#f3f5f7, `--accent-hover` now distinct (hover was a no-op), `--footer-bg`→#141313,
+  `--line`→#d9d9d9; accent-derived alphas via `color-mix()`.
+- **P1 — shadows** re-tinted to the source cool-grey `#717f8c`; `--radius-sm` 12→10px.
+- **P1 — hero size** now fluid `--fs-hero` (44→72px); no longer overflows on phones.
+- **Responsive typography** — single fluid type scale (`--fs-*`) replaces ad-hoc clamps.
+- **Layout** — all section boxes aligned to one left edge (bento padding + 940px caps removed).
+- **a11y** — global `:focus-visible`; valid hero markup; decorative hero-icon `alt=""`;
+  de-duplicated image alt.
+- **FAQ chevron** now drawn and animated.
+- **Dead CSS removed** — header/nav/mobile-menu (the Final design has no header),
+  `.hero-shot-overlay`, `.doc-mock` family, `.reveal`, duplicated grid-area block.
+- **Tokens** — `--success` / `--error` added; form JS toggles `.is-error` instead of inline hex.
 
-### P1 — design-token deviations
+### Remaining (intentionally deferred)
 
-5. `--accent: #226cf7` → **`#1874D3`** (dominant). Also update hard-coded copies
-   `rgba(34,108,247,…)` at `styles.css:82, 501`. `styles.css:15`.
-6. `--surface: #f1f4f6` → **`#F3F5F7`**. Also gradient stops at `styles.css:300, 416`.
-   `styles.css:8`.
-7. `--accent-d` equals `--accent`, so `.btn-primary:hover` is a no-op → set
-   **`#1568BE`**. `styles.css:16, 84`.
-8. `--footer-bg: #1f2227` is **not in the source** (marked "inferred") → `#141313`
-   (verify). `styles.css:19`.
-9. `--radius-sm: 12px` has no basis in the source (10/6 px) → **10 px**. `styles.css:23`.
-10. `.hero-title: 4.75rem` (76 px) → **4.5rem (72 px)**; the `clamp()` is commented out
-    (`styles.css:171`), so the hero can overflow on phones — restore fluid sizing.
-11. Shadows are ink-tinted `rgba(36,38,41,…)`; source uses cool grey `#717F8C` —
-    re-author `--shadow-card` / `--shadow-float` and the repeated mockup shadow.
-    `styles.css:25, 26, 307, 316, 409`.
-
-### P2 — structure, a11y, hygiene
-
-12. **No header/nav exists** in `index.html` although the design (and ~70 lines of CSS:
-    `.site-header`, `.nav`, `.nav-toggle`, `.mobile-menu`) call for a sticky header.
-    Biggest structural gap: implement it or delete the dead CSS.
-13. **No `:focus-visible`** anywhere except the newsletter input — keyboard users get no
-    visible focus on buttons, links, or FAQ summaries.
-14. **Muted-text contrast fails WCAG AA** (`--muted` / `--muted-2` ≈3:1 on white; footer
-    `.55`/`.66` whites on dark).
-15. **FAQ chevron never renders** — `[open] summary::after` rotates a pseudo-element whose
-    base `::after` is undefined. `styles.css:469`.
-16. **Duplicate / inaccurate `alt`** — hero and the "note" image share identical alt text;
-    the note is not a state diagram. `index.html:40, 61`. Hero `<div>` is also illegally
-    nested inside `<h1>` (`index.html:29`) — use a `<span>`.
-17. **Dead CSS / refactor leftovers:** `.doc-mock` & friends, `.tips-table`/`kbd`/
-    `.math-expr`, `.caret` (reduced-motion block), `.hero-shot-overlay`, the duplicated
-    `grid-area` block (`styles.css:586–591`), the empty `.bento-card {}` (`styles.css:630`).
-18. **Scroll-reveal system is inert** — `.reveal` styles exist but no element carries the
-    class and `script.js` (newsletter only) never adds `.in`.
-19. **Tokenise split magic values** — success `#1d7d3f` (CSS) vs error `#d9382f` (JS)
-    should both be `--success`/`--error`; footer white alphas and accent-derived `rgba()`
-    should derive from tokens.
+- **Muted-text contrast** — `--muted` / `--muted-2` are ≈3:1 on white (below WCAG AA 4.5:1)
+  and footer whites at `.55`/`.66` are borderline. These are the **source brand colours**;
+  darkening them deviates from Sketch. Decision pending: reserve them for large text, or
+  agree a darker tint with the designer. Tracked, not silently changed.
+- **Spacing tokens** — values are coherent but still literals; a `--space-*` ramp would
+  finish the tokenisation. Low priority.
+- **`--footer-bg: #141313`** — the only dark fill in the source (appeared once); worth a
+  visual confirm against the designer's intent.
