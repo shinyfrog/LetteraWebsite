@@ -26,39 +26,69 @@ baked into the images.
 
 ---
 
+## Visual theme & atmosphere
+
+**Calm, native-macOS premium.** The page feels like an Apple product page rendered through
+a writing-app lens: airy, unhurried, and confident. Generous vertical breathing room
+(84 px between sections) lets each idea land on its own. The reading column is centred and
+narrow; nothing fights for attention.
+
+- **Rhythm** — the page breathes by **alternating bands**: pure-white sections give way to
+  soft cool-grey (`#F3F5F7`) bands, a quiet metronome that segments the story without rules
+  or hard edges.
+- **Light & material** — overwhelmingly light. Surfaces are paper-white and pale grey;
+  depth comes from **whisper-soft, cool-grey diffused shadows**, never hard drop shadows.
+  Cards feel like they rest a millimetre above the page, not float above it.
+- **Shape language** — **softly rounded throughout.** Generously rounded containers
+  (32 px) and comfortably rounded cards (18 px) set a friendly, tactile tone with no sharp
+  corners anywhere in the chrome.
+- **Colour temperament** — a near-monochrome canvas of cool greys and off-blacks, punctuated
+  by a single **trustworthy editorial blue** (`#1874D3`) reserved for actions and links.
+  Restraint is the point: one accent, used sparingly, reads as deliberate and calm.
+- **Storytelling** — the page is **screenshot-led**. Real editor imagery, faded gently into
+  its card at the bottom edge, carries the message; copy stays terse and supportive.
+- **Voice in type** — large, tightly-set bold headings (Plus Jakarta Sans) over muted
+  blue-grey body copy. The contrast of confident heading vs. soft secondary text is the
+  core typographic gesture.
+
+One-line brief: *a refined, light, blue-accented macOS landing page — calm whitespace,
+soft-cornered cards, feather-light shadows, screenshots doing the talking.*
+
+---
+
 ## Colour
 
 Canonical website-chrome tokens. Hex values are the dominant Sketch value for each role.
 
 ### Backgrounds & surfaces
 
-| Token | Value | Role |
-|---|---|---|
-| `--bg` | `#FFFFFF` | Page background, cards, inputs (33× in source) |
-| `--surface` | `#F3F5F7` | Section bands, showcase / know / more cards (16× — the dominant band colour) |
-| `--surface-2` | `#F1F4F6` | Secondary band tint (8×) — use only if a second tier is needed |
-| `--footer-bg` | `#141313` | Dark footer. ⚠️ Only near-black fill in the source; **confirm with designer** |
+| Token | Character | Value | Role |
+|---|---|---|---|
+| `--bg` | Paper White | `#FFFFFF` | Page background, cards, inputs (33× in source) |
+| `--surface` | Cool Mist Grey | `#F3F5F7` | Section bands, showcase / know / more cards (16× — the dominant band colour) |
+| `--surface-2` | Faint Fog Grey | `#F1F4F6` | Secondary band tint (8×) — use only if a second tier is needed |
+| `--footer-bg` | Near-Black Ink | `#141313` | Dark footer. ⚠️ Only near-black fill in the source; **confirm with designer** |
 
 ### Text / ink
 
-| Token | Value | Role |
-|---|---|---|
-| `--ink-hero` | `#000000` | Hero wordmark **only** (pure black, distinct from `--ink`) |
-| `--ink` | `#242629` | All section & card headings |
-| `--ink-soft` | `#444444` | Long-form body text (mostly mockup content) |
-| `--muted` | `#718AA2` | Section subtitles, nav links |
-| `--muted-2` | `#7E94AA` | Card body copy |
-| `--caption` | `#888888` | Captions / fine print |
+| Token | Character | Value | Role |
+|---|---|---|---|
+| `--ink-hero` | True Black | `#000000` | Hero wordmark **only** (pure black, distinct from `--ink`) |
+| `--ink` | Graphite Off-Black | `#242629` | All section & card headings |
+| `--ink-soft` | Soft Charcoal | `#444444` | Long-form body text (mostly mockup content) |
+| `--muted` | Slate Blue-Grey | `#718AA2` | Section subtitles, nav links |
+| `--muted-2` | Pale Slate Blue | `#7E94AA` | Card body copy |
+| `--caption` | Neutral Grey | `#888888` | Captions / fine print |
 
 ### Accent & highlights
 
-| Token | Value | Role |
-|---|---|---|
-| `--accent` | `#1874D3` | **Primary blue** — buttons, links, focus ring (7× — dominant) |
-| `--accent-bright` | `#226CF7` | Brighter blue, secondary emphasis / inline links (3×) |
-| `--accent-hover` | `#1568BE` | Darker accent for button hover |
-| `--hl-green` | `#DBFDAE` | Green text highlight (`<mark>`) |
-| `--hl-purple` | `#F8DCFD` | Purple text highlight (`<mark>`) |
+| Token | Character | Value | Role |
+|---|---|---|---|
+| `--accent` | Editorial Blue | `#1874D3` | **Primary blue** — buttons, links, focus ring (7× — dominant) |
+| `--accent-bright` | Vivid Royal Blue | `#226CF7` | Brighter blue, secondary emphasis / inline links (3×) |
+| `--accent-hover` | Deep Ocean Blue | `#1568BE` | Darker accent for button hover |
+| `--hl-green` | Highlighter Lime | `#DBFDAE` | Green text highlight (`<mark>`) |
+| `--hl-purple` | Soft Orchid | `#F8DCFD` | Purple text highlight (`<mark>`) |
 
 ### Lines, borders & semantic states
 
@@ -73,14 +103,17 @@ Canonical website-chrome tokens. Hex values are the dominant Sketch value for ea
 
 ### Shadows
 
-Source shadows are tinted **cool blue-grey `#717F8C`**, not ink.
+Elevation is **deliberately low and soft**. Source shadows are tinted **cool blue-grey
+`#717F8C`** rather than black, so they read as ambient haze, not a cast shadow. The effect
+is that cards *rest* on the page rather than hover above it — there are no heavy,
+high-contrast drop shadows anywhere.
 
-| Token | Value | Role |
-|---|---|---|
-| `--shadow-card` | `0 0 20px rgba(113,127,140,.06)` | Soft card glow (6× in source) |
-| `--shadow-float` | `4px 4px 30px rgba(113,127,140,.25)` | Floating element |
-| `--shadow-mock` | `0 20px 50px rgba(113,127,140,.14)` | Screenshot/mockup drop shadow |
-| hero icon | `0 0 60px rgba(0,0,0,.15)` | Hero app-icon glow (blur 60 in source) |
+| Token | Value | Elevation feel | Role |
+|---|---|---|---|
+| `--shadow-card` | `0 0 20px rgba(113,127,140,.06)` | Whisper-soft, even glow | Soft card glow (6× in source) |
+| `--shadow-float` | `4px 4px 30px rgba(113,127,140,.25)` | Gently lifted, directional | Floating element |
+| `--shadow-mock` | `0 20px 50px rgba(113,127,140,.14)` | Soft drop beneath imagery | Screenshot/mockup drop shadow |
+| hero icon | `0 0 60px rgba(0,0,0,.15)` | Wide, diffuse halo | Hero app-icon glow (blur 60 in source) |
 
 ---
 
@@ -88,6 +121,13 @@ Source shadows are tinted **cool blue-grey `#717F8C`**, not ink.
 
 **Family:** `"Plus Jakarta Sans"`, system fallback. Loaded via Google Fonts
 (`index.html:13–15`, weights 400/500/600/700/800 + italic-500, `display=swap`). ✅ Loaded.
+
+**Voice:** the type system is built on a single, decisive contrast — **large, bold,
+tightly-set headings** in graphite off-black against **soft, medium-weight body copy** in
+muted blue-grey. Headings feel assertive and modern; supporting text recedes politely.
+Plus Jakarta Sans gives the geometric-humanist warmth that pairs naturally with the
+macOS-native feel. Body text never goes darker than slate; pure black is reserved
+exclusively for the hero wordmark, making it the single loudest moment on the page.
 
 Letter-spacing: the Sketch source carries **no kerning** on chrome text — any negative
 `letter-spacing` in CSS is a stylistic add, not from the design.
@@ -129,17 +169,29 @@ Off-grid values in the current CSS to normalise: `84` (→ 80/88), `52`, `38`, `
 
 ## Radii
 
-| Token | Value | Usage |
-|---|---|---|
-| `--radius-lg` | 32 px | Large containers, footer top corners (32× in source) |
-| `--radius-md` | 18 px | Cards (96× — the dominant card radius) |
-| `--radius-sm` | 10 px | Buttons, inputs (source small radius is 10/6 px — **not** 12) |
-| `--radius-shot` | 35 px | TOC screenshot top-right corner only (distinct from `--radius-lg`) |
-| `--radius-pill` | 100 px | Pills / round affordances |
+| Token | Value | Physical feel | Usage |
+|---|---|---|---|
+| `--radius-lg` | 32 px | Generously, pillowy rounded | Large containers, footer top corners (32× in source) |
+| `--radius-md` | 18 px | Comfortably rounded | Cards (96× — the dominant card radius) |
+| `--radius-sm` | 10 px | Subtly softened corners | Buttons, inputs (source small radius is 10/6 px — **not** 12) |
+| `--radius-shot` | 35 px | Generously rounded (single corner) | TOC screenshot top-right corner only (distinct from `--radius-lg`) |
+| `--radius-pill` | 100 px | Fully pill-shaped | Pills / round affordances |
+
+There are **no sharp corners** anywhere in the chrome. The shape system reads as friendly
+and tactile — every container is rounded, scaling from subtly-softened controls up to
+pillowy section cards.
 
 ---
 
 ## Layout & responsive
+
+**Principles.** A single centred column with **abundant whitespace** is the organising
+idea. Content is capped at a comfortable 1160 px and never spans edge-to-edge; text-heavy
+sections (FAQ, newsletter) tighten further to 760 px to protect line length and readability.
+Sections are separated by **air, not rules** — 84 px of vertical space and the white/grey
+band alternation do all the dividing work. Within cards, content is generously padded
+(40–56 px) so nothing feels cramped. The whole layout favours one clear idea per row,
+centred and unhurried, over dense multi-column packing.
 
 - **Container:** `--container: 1160px` + `24px` inline padding = 1208 px outer, ≈20 px
   gutters inside the 1200 px canvas. Correct — "canvas minus gutter". Narrow variant
