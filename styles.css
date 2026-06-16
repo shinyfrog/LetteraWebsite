@@ -489,8 +489,22 @@ mark.hl-purple { background: var(--hl-purple); color: inherit; padding: 1px 2px;
   font-weight: 600;
   color: var(--ink);
 }
-
-.faq-item[open] summary::after { transform: translateY(-35%) rotate(-135deg); }
+.faq-item summary::-webkit-details-marker { display: none; }
+/* chevron, pointing down when closed */
+.faq-item summary::after {
+  content: "";
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  width: 11px;
+  height: 11px;
+  border-right: 2px solid var(--muted);
+  border-bottom: 2px solid var(--muted);
+  transform: translateY(-65%) rotate(45deg);
+  transition: transform .25s var(--ease);
+}
+/* flips to point up when open */
+.faq-item[open] summary::after { transform: translateY(-30%) rotate(-135deg); }
 .faq-answer { padding: 0 44px 28px 0; }
 .faq-answer p { font-size: var(--fs-body); font-weight: 500; color: var(--muted-2); }
 .faq-answer a { color: var(--accent); font-weight: 600; }
