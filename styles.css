@@ -345,19 +345,18 @@ mark.hl-purple { background: var(--hl-purple); color: inherit; padding: 1px 2px;
 .bento {
   display: grid;
   gap: 24px;
-  padding: 24px;
   grid-auto-rows: minmax(0, auto);
   align-items: stretch;
 }
 
 .bento.top {
   grid-template-columns: 2fr 1fr;
+  margin-bottom: 24px;   /* gap to the bottom bento block */
   grid-template-areas:
   "recap  check";
 }
 
 .bento.bottom {
-  padding-top: 0px;
   grid-template-columns: 1fr 2fr;
   grid-template-areas:
   "code   table"
@@ -399,8 +398,6 @@ mark.hl-purple { background: var(--hl-purple); color: inherit; padding: 1px 2px;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 30px;
   overflow: hidden;
-  max-width: 940px;
-  margin-inline: auto;
   align-items: stretch;
 }
 .know-visual {
@@ -437,8 +434,6 @@ mark.hl-purple { background: var(--hl-purple); color: inherit; padding: 1px 2px;
   background: var(--surface);
   border-radius: var(--radius-lg);
   padding: 56px;
-  max-width: 940px;
-  margin-inline: auto;
 }
 .more-grid {
   display: grid;
