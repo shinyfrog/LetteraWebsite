@@ -28,6 +28,7 @@
   --radius-lg: 32px;
   --radius-md: 18px;
   --radius-sm: 10px;
+  --radius-shot: 35px;   /* screenshot single-corner accent */
 
   /* Source shadows are tinted cool blue-grey (#717f8c), not ink — soft, ambient. */
   --shadow-card:  0 0 20px rgba(113,127,140,.06);
@@ -309,10 +310,10 @@ a { color: inherit; text-decoration: none; }
   background: linear-gradient(to bottom, transparent, var(--surface));
   pointer-events: none;
 }
-.showcase-visual--image img {
+.showcase-visual img {
   width: 80%;
   align-self: flex-start;
-  border-radius: 16px 16px 0 0;
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
   box-shadow: var(--shadow-mock);
 }
 
@@ -414,7 +415,7 @@ mark.hl-purple { background: var(--hl-purple); color: inherit; padding: 1px 2px;
 .know-visual img {
   width: 84%;
   align-self: flex-start;
-  border-radius: 0 35px 0 0;   /* only the top-right corner is rounded, per spec */
+  border-radius: 0 var(--radius-shot) 0 0;   /* only the top-right corner is rounded, per spec */
   box-shadow: var(--shadow-mock);
 }
 .know-visual::after {
@@ -601,7 +602,7 @@ mark.hl-purple { background: var(--hl-purple); color: inherit; padding: 1px 2px;
 
   .know-card { grid-template-columns: minmax(0, 1fr); }
   .know-visual { height: 360px; padding: 44px 44px 0; }
-  .know-visual img { width: 66%; border-radius: 16px 16px 0 0; }
+  .know-visual img { width: 66%; border-radius: var(--radius-md) var(--radius-md) 0 0; }
   .know-text { padding: 8px 44px 48px; }
 
   .more-grid { gap: 36px 40px; }
