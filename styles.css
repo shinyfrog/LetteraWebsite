@@ -248,14 +248,10 @@ a { color: inherit; text-decoration: none; }
   position: relative;
   margin-top: 30px;
   overflow: hidden;
+  flex: 1;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
-}
-
-.showcase-visual{
-  
-  margin-right: -21px;
+  align-items: flex-end;
 }
 
 /* bottom fade so mockups dissolve into the card, as in the design */
@@ -266,6 +262,20 @@ a { color: inherit; text-decoration: none; }
   height: 150px;
   background: linear-gradient(to bottom, transparent, var(--surface));
   pointer-events: none;
+}
+.showcase-visual img {
+  width: 80%;
+  align-self: flex-end;
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+  box-shadow: var(--shadow-mock);
+}
+/* sidebar mockup bleeds off the right edge, deliberately cut off */
+.showcase-card--bleed-right .showcase-visual {
+  justify-content: flex-end;
+  margin-right: -40px;
+}
+.showcase-card--bleed-right .showcase-visual img {
+  border-radius: var(--radius-md) 0 0 0;
 }
 
 /* ============================================================
@@ -337,8 +347,8 @@ a { color: inherit; text-decoration: none; }
   overflow: hidden;
   display: flex;
   align-items: flex-start;
-  justify-content: center;
-  padding: 52px 0 0 52px;
+  justify-content: flex-start;
+  padding: 52px 0 0 0;
 }
 .know-visual img {
   width: 84%;
