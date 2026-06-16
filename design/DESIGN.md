@@ -1,9 +1,8 @@
 # Lettera Website — Design System
 
-The single reference for the Lettera marketing site's visual language. Tokens here are
-the **canonical target**, reconciled from the Sketch source against usage frequency. Where
-the shipped CSS disagrees, this file states the target and the
-[Conformance audit](#conformance-audit) lists the deviation.
+The single reference for the Lettera marketing site's visual language — a living
+description of the system as it currently stands, reconciled from the Sketch source. The
+token names below match the CSS custom properties in `styles.css`.
 
 ## Source of truth
 
@@ -157,13 +156,12 @@ Inside the screenshot PNGs only: **BearSansUI** (Lettera's UI font, 13–34 px),
 
 ## Spacing
 
-The site uses a loose 4/8-based ramp. Recommended canonical scale (introduce as
-`--space-*` tokens; current CSS hard-codes every value):
+A loose 4/8-based ramp, applied as literal values (no spacing tokens yet):
 
 `4 · 8 · 12 · 16 · 20 · 24 · 28 · 32 · 40 · 48 · 56 · 64`
 
-Section vertical rhythm: **84 px** desktop (`--space-section`), **64 px** ≤900 px.
-Off-grid values in the current CSS to normalise: `84` (→ 80/88), `52`, `38`, `30`.
+Section vertical rhythm is **84 px** on desktop, **64 px** at ≤900 px. A few values sit
+off the 4/8 grid (`84`, `52`, `38`, `30`).
 
 ---
 
@@ -175,7 +173,6 @@ Off-grid values in the current CSS to normalise: `84` (→ 80/88), `52`, `38`, `
 | `--radius-md` | 18 px | Comfortably rounded | Cards (96× — the dominant card radius) |
 | `--radius-sm` | 10 px | Subtly softened corners | Buttons, inputs (source small radius is 10/6 px — **not** 12) |
 | `--radius-shot` | 35 px | Generously rounded (single corner) | TOC screenshot top-right corner only (distinct from `--radius-lg`) |
-| `--radius-pill` | 100 px | Fully pill-shaped | Pills / round affordances |
 
 There are **no sharp corners** anywhere in the chrome. The shape system reads as friendly
 and tactile — every container is rounded, scaling from subtly-softened controls up to
@@ -198,7 +195,7 @@ centred and unhurried, over dense multi-column packing.
   `760px` for FAQ / newsletter.
 - **Breakpoints:** `900px` (bento & know-card stack), `760px` (nav, dual-grid, more-card
   stack), `560px` (mobile fine-tuning). Coherent ladder.
-- **Reduced motion:** `prefers-reduced-motion` disables reveal/scroll animation. ✅
+- **Reduced motion:** `prefers-reduced-motion` disables smooth scrolling.
 
 ---
 
@@ -206,10 +203,9 @@ centred and unhurried, over dense multi-column packing.
 
 | Component | Spec |
 |---|---|
-| **Button** primary | `--accent` bg, white **20 px/600** label (`.btn-lg`), `--radius-sm`, accent glow shadow. Hover → `--accent-hover`. Needs `:focus-visible`. |
+| **Button** primary | `--accent` bg, white **20 px/600** label (`.btn-lg`), `--radius-sm`, accent glow shadow; hover darkens to `--accent-hover`. |
 | **Button** small | white **16 px/500** label. |
-| **Header / nav** | Sticky, translucent-white blur, 68 px row, brand mark + nav + CTA; `.scrolled` adds border+shadow. ⚠️ **Designed but not implemented** — see audit. |
-| **Hero** | Wordmark "Letter" + app-icon standing in for the final "a" (rotated 14°, soft glow); tagline `--muted`; CTA; full-bleed screenshot fading into page. |
+| **Hero** | Wordmark "Letter" + app-icon standing in for the final "a" (rotated 14°, soft glow); tagline `--muted`; CTA; full-bleed screenshot fading into page. The page has no top header — it opens directly into the hero. |
 | **Showcase card** | `--surface`, `--radius-lg`, 40 px padding; mockup image 80 %-width, top-rounded, bottom fade into card. |
 | **Bento card** | `#FFFFFF`, `--radius-md`, `--shadow-card`; image `object-fit:contain`. Top row 2:1, bottom row 1:2. |
 | **Know card** | Split `--surface` card; TOC screenshot masked to a fixed height, top-right corner `--radius-shot`, fade-out; two text blocks. |
@@ -220,50 +216,16 @@ centred and unhurried, over dense multi-column packing.
 
 ---
 
-## Accessibility baseline
+## Accessibility
 
-- Provide a single, consistent `:focus-visible` ring (`2px solid var(--accent)`,
-  `outline-offset: 2px`) on `.btn`, links, and `summary`.
-- **Contrast:** `--muted` / `--muted-2` on white are ≈3:1 — **below WCAG AA (4.5:1)** for
-  body text. Reserve them for large text only, or darken for small copy. Footer whites at
-  `.55`/`.66` alpha similarly fail; lift to ≥`.7`.
-- Decorative images get `alt=""`; informative images get distinct, accurate alt text.
-- A skip link + header landmark once the header is implemented.
+- A single `:focus-visible` ring (`2px solid var(--accent)`, `outline-offset: 3px`) covers
+  buttons, links, and FAQ summaries; the email field keeps its own focus ring.
+- Decorative images carry `alt=""`; informative images carry distinct, accurate alt text.
+- `prefers-reduced-motion` disables smooth scrolling.
 
----
+### Known constraints
 
-## Conformance audit
-
-A 5-track review compared the shipped code against this system. The
-`design-system-refactor` branch then resolved the findings in thin commits.
-
-### Resolved
-
-- **P0 — bento images broken** (doubled `assets/bento/assets/bento/…@1x.png` srcset). Fixed.
-- **P0 — bento grid columns voided** by invalid commas (`2fr, 1fr`) → `2fr 1fr` / `1fr 2fr`.
-- **P0 — know-card / showcase visuals unstyled** (selectors the markup never set) — wired
-  `.know-visual` and pointed image CSS at `.showcase-visual img`.
-- **P1 — colour tokens** realigned to source: `--accent` #226cf7→#1874d3, `--surface`
-  #f1f4f6→#f3f5f7, `--accent-hover` now distinct (hover was a no-op), `--footer-bg`→#141313,
-  `--line`→#d9d9d9; accent-derived alphas via `color-mix()`.
-- **P1 — shadows** re-tinted to the source cool-grey `#717f8c`; `--radius-sm` 12→10px.
-- **P1 — hero size** now fluid `--fs-hero` (44→72px); no longer overflows on phones.
-- **Responsive typography** — single fluid type scale (`--fs-*`) replaces ad-hoc clamps.
-- **Layout** — all section boxes aligned to one left edge (bento padding + 940px caps removed).
-- **a11y** — global `:focus-visible`; valid hero markup; decorative hero-icon `alt=""`;
-  de-duplicated image alt.
-- **FAQ chevron** now drawn and animated.
-- **Dead CSS removed** — header/nav/mobile-menu (the Final design has no header),
-  `.hero-shot-overlay`, `.doc-mock` family, `.reveal`, duplicated grid-area block.
-- **Tokens** — `--success` / `--error` added; form JS toggles `.is-error` instead of inline hex.
-
-### Remaining (intentionally deferred)
-
-- **Muted-text contrast** — `--muted` / `--muted-2` are ≈3:1 on white (below WCAG AA 4.5:1)
-  and footer whites at `.55`/`.66` are borderline. These are the **source brand colours**;
-  darkening them deviates from Sketch. Decision pending: reserve them for large text, or
-  agree a darker tint with the designer. Tracked, not silently changed.
-- **Spacing tokens** — values are coherent but still literals; a `--space-*` ramp would
-  finish the tokenisation. Low priority.
-- **`--footer-bg: #141313`** — the only dark fill in the source (appeared once); worth a
-  visual confirm against the designer's intent.
+- `--muted` / `--muted-2` are ≈3:1 on white — below WCAG AA (4.5:1) for small text — and
+  footer whites at `.55`/`.66` are borderline. These are the source brand greys, kept
+  faithful to Sketch; reserve them for large text or agree a darker tint with the designer.
+- `--footer-bg: #141313` is the only dark fill in the source and worth a visual confirm.
