@@ -16,7 +16,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
 
-  <link rel="icon" type="image/png" href="assets/app-icon.png" />
+  <link rel="icon" type="image/png" href="" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -26,68 +26,13 @@
     <section class="hero">
       <div class="container hero-inner">
         <h1 class="hero-title">
-          <span class="hero-wordmark">Letter<span class="ghost-a">a<img src="assets/app-icon.png" alt="" class="hero-mark" /></span></span>
+          <span class="hero-wordmark">Letter<span class="ghost-a">a<img src="assets/app-icon.png" srcset="assets/app-icon.png 1x, assets/app-icon@2x.png 2x"alt="" class="hero-mark" /></span></span>
         </h1>
         <p class="hero-tagline">A native, refined Markdown editor for macOS</p>
         <a href="#newsletter" class="btn btn-primary btn-lg">Join Beta</a>
 
-        <div class="hero-shot reveal">
+        <div class="hero-shot">
           <img src="assets/hero-editor.png" alt="Lettera editor showing a Markdown document with a state diagram" />
-          <!-- overlay: patches the base screenshot's old black diagram with the design's
-               colored state diagram, recolors the bullets, and relabels the sidebar item.
-               viewBox matches the PNG's pixel size so it scales 1:1 with the image. -->
-          <svg class="hero-shot-overlay" viewBox="0 0 2622 1766" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false">
-            <defs>
-              <marker id="ah" markerWidth="16" markerHeight="16" refX="10" refY="5" orient="auto" markerUnits="userSpaceOnUse">
-                <path d="M0,0 L12,5 L0,10 Z" fill="#707782"/>
-              </marker>
-            </defs>
-
-            <!-- cover the old black diagram -->
-            <rect x="852" y="400" width="1396" height="474" fill="#ffffff"/>
-
-            <!-- relabel sidebar: cover "content", write "diagram" -->
-            <rect x="249" y="577" width="134" height="37" fill="#FAFAF9"/>
-            <text x="253" y="604" font-family="-apple-system,system-ui,'Segoe UI',sans-serif" font-size="26" fill="#B8C5D1">diagram</text>
-
-            <!-- recolor the Key types bullets blue -->
-            <circle cx="876" cy="1012" r="10" fill="#4983F1"/>
-            <circle cx="876" cy="1067" r="10" fill="#4983F1"/>
-            <circle cx="876" cy="1122" r="10" fill="#4983F1"/>
-
-            <!-- ===== colored state diagram ===== -->
-            <!-- arrows -->
-            <g fill="none" stroke="#707782" stroke-width="3.5">
-              <path d="M1014 688 L1194 688" marker-end="url(#ah)"/>
-              <path d="M1362 688 L1914 688" marker-end="url(#ah)"/>
-              <path d="M1262 730 L1262 786" marker-end="url(#ah)"/>
-              <path d="M1296 788 L1296 732" marker-end="url(#ah)"/>
-              <path d="M1998 648 C 2086 456 1100 446 962 642" marker-end="url(#ah)"/>
-              <path d="M1262 650 C 1188 578 1062 582 988 642" marker-end="url(#ah)"/>
-            </g>
-
-            <!-- arrow labels (monospace) -->
-            <g font-family="ui-monospace,'SF Mono',Menlo,monospace" font-size="24" fill="#3C414C">
-              <text x="1104" y="668" text-anchor="middle">Session Start</text>
-              <text x="1638" y="668" text-anchor="middle">Session Ends</text>
-              <text x="1232" y="766" text-anchor="end">User Pauses</text>
-              <text x="1328" y="766" text-anchor="start">User Resumes</text>
-              <text x="1430" y="442" text-anchor="middle">Session Reset</text>
-              <text x="1120" y="560" text-anchor="middle">User Ends</text>
-            </g>
-
-            <!-- state boxes -->
-            <g font-family="-apple-system,system-ui,sans-serif" font-size="30" font-weight="500" text-anchor="middle">
-              <rect x="868" y="650" width="140" height="76" rx="14" fill="#4B5563" fill-opacity="0.06" stroke="#4B5563" stroke-width="2.5"/>
-              <text x="938" y="699" fill="#4B5563">idle</text>
-              <rect x="1200" y="650" width="156" height="76" rx="14" fill="#1D4ED8" fill-opacity="0.06" stroke="#1D4ED8" stroke-width="2.5"/>
-              <text x="1278" y="699" fill="#1D4ED8">active</text>
-              <rect x="1920" y="650" width="176" height="76" rx="14" fill="#15803D" fill-opacity="0.06" stroke="#15803D" stroke-width="2.5"/>
-              <text x="2008" y="699" fill="#15803D">complete</text>
-              <rect x="1200" y="792" width="156" height="76" rx="14" fill="#B45309" fill-opacity="0.06" stroke="#B45309" stroke-width="2.5"/>
-              <text x="1278" y="841" fill="#B45309">paused</text>
-            </g>
-          </svg>
         </div>
       </div>
     </section>
@@ -102,35 +47,17 @@
 
         <div class="dual-grid">
           <!-- Single file editor -->
-          <article class="showcase-card reveal">
+          <article class="showcase-card">
             <div class="showcase-text">
               <h3>Single file editor</h3>
               <p>Open any MD file with editor-only view to get straight to work.</p>
             </div>
             <div class="showcase-visual">
-              <div class="doc-mock">
-                <div class="win-dots"><i></i><i></i><i></i></div>
-                <div class="doc-body">
-                  <h4 class="doc-title">The Rise and Fall of Rococo</h4>
-                  <p class="doc-para">
-                    Emerging from the grandiosity of Baroque, Rococo offered something
-                    altogether more <mark class="hl-green">intimate and playful</mark>.
-                    Where Baroque demanded awe, Rococo invited you into a
-                    <mark class="hl-purple">world of soft curves, pastel palettes</mark>,
-                    and <mark class="hl-purple">lighthearted subjects</mark>. Patrons wanted
-                    art that felt personal, decorative, and alive with formality pleasure.<sup class="footref">1</sup>
-                  </p>
-                  <p class="doc-para">
-                    By the mid-18th century, the philosopher and critic Denis Diderot had
-                    become one of&hellip;
-                  </p>
-                </div>
-              </div>
             </div>
           </article>
 
           <!-- Folder as workspace -->
-          <article class="showcase-card reveal">
+          <article class="showcase-card">
             <div class="showcase-text">
               <h3>Folder as workspace</h3>
               <p>Full folder structure in the Sidebar. Click any file to start editing instantly.</p>
@@ -153,7 +80,7 @@
 
         <div class="bento">
           <!-- Meeting Recap -->
-          <article class="bento-card bento-recap reveal">
+          <article class="bento-card bento-recap">
             <h3 class="recap-title">Meeting Recap</h3>
             <p class="recap-body">
               Discussed the Q3 roadmap with the team. Final deadline is
@@ -167,7 +94,7 @@
           </article>
 
           <!-- Checklist -->
-          <article class="bento-card bento-check reveal">
+          <article class="bento-card bento-check">
             <ul class="checklist">
               <li class="done"><span class="box">✓</span> Design layout review</li>
               <li class="done dim"><span class="box">✓</span> Write unit tests</li>
@@ -177,12 +104,12 @@
           </article>
 
           <!-- Code -->
-          <article class="bento-card bento-code reveal">
+          <article class="bento-card bento-code">
             <pre><code><span class="tok-fn">print</span>(<span class="tok-str">"Hello, world!"</span>)</code></pre>
           </article>
 
           <!-- Math -->
-          <article class="bento-card bento-math reveal">
+          <article class="bento-card bento-math">
             <p class="math-label">Compound interest formula:</p>
             <p class="math-expr">
               A = P&thinsp;<span class="paren">(</span>1 +
@@ -192,7 +119,7 @@
           </article>
 
           <!-- Attachment -->
-          <article class="bento-card bento-attach reveal">
+          <article class="bento-card bento-attach">
             <div class="file-chip">
               <span class="file-badge">PDF</span>
               <div class="file-meta">
@@ -203,7 +130,7 @@
           </article>
 
           <!-- Mac Tips table -->
-          <article class="bento-card bento-table reveal">
+          <article class="bento-card bento-table">
             <h3 class="table-title">Mac Tips for Beginners</h3>
             <p class="table-sub">A list of useful macOS keyboard shortcuts:</p>
             <table class="tips-table">
@@ -230,7 +157,7 @@
           <p>The big picture and the fine details,<br class="br-desktop" /> always within reach</p>
         </header>
 
-        <article class="know-card reveal">
+        <article class="know-card">
           <div class="know-visual">
             <img src="assets/toc.png" alt="Table of contents panel listing document sections" />
           </div>
@@ -256,7 +183,7 @@
           <p>Discover more features from writing to publishing</p>
         </header>
 
-        <div class="more-card reveal">
+        <div class="more-card">
           <div class="more-grid">
             <div class="more-item">
               <h3>Multiple Tab</h3>

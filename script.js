@@ -2,39 +2,6 @@
 (function () {
   "use strict";
 
-  /* ---------- Sticky header shadow on scroll ---------- */
-  const header = document.querySelector(".site-header");
-  const onScroll = () => {
-    header.classList.toggle("scrolled", window.scrollY > 8);
-  };
-  onScroll();
-  window.addEventListener("scroll", onScroll, { passive: true });
-
-  /* ---------- Mobile menu ---------- */
-  const toggle = document.getElementById("navToggle");
-  const menu = document.getElementById("mobileMenu");
-
-  const closeMenu = () => {
-    menu.hidden = true;
-    toggle.setAttribute("aria-expanded", "false");
-    toggle.setAttribute("aria-label", "Open menu");
-  };
-  const openMenu = () => {
-    menu.hidden = false;
-    toggle.setAttribute("aria-expanded", "true");
-    toggle.setAttribute("aria-label", "Close menu");
-  };
-
-  toggle.addEventListener("click", () => {
-    if (menu.hidden) openMenu();
-    else closeMenu();
-  });
-  // Close after tapping a link, and on resize back to desktop.
-  menu.querySelectorAll("a").forEach((a) => a.addEventListener("click", closeMenu));
-  window.addEventListener("resize", () => {
-    if (window.innerWidth > 760) closeMenu();
-  });
-
   /* ---------- FAQ: keep only one open at a time ---------- */
   const faqItems = document.querySelectorAll(".faq-item");
   faqItems.forEach((item) => {
@@ -47,7 +14,7 @@
     });
   });
 
-  /* ---------- Reveal on scroll ---------- */
+  /* ---------- Reveal on scroll ---------- 
   const revealEls = document.querySelectorAll(".reveal");
   if ("IntersectionObserver" in window) {
     const io = new IntersectionObserver(
