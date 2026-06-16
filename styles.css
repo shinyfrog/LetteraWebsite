@@ -190,11 +190,10 @@ a { color: inherit; text-decoration: none; }
   display: block;
   z-index: -1;
   left: -1.3em;
-  top: -0.82em;                   /* base just below the text baseline */
+  top: -0.85em;                   /* base just below the text baseline */
   width: 251px;
   height: 251px;
   max-width: none;                 /* override the global img max-width */
-  transform: rotate(13deg);
   pointer-events: none;
   user-select: none;
 }
@@ -328,27 +327,49 @@ mark.hl-purple { background: var(--hl-purple); color: inherit; padding: 1px 2px;
    ============================================================ */
 .bento {
   display: grid;
-  grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
+  gap: 24px;
+  padding: 24px;
   grid-auto-rows: minmax(0, auto);
-  gap: 22px;
-  max-width: 940px;
-  margin-inline: auto;
-  grid-template-areas:
-    "recap  check"
-    "code  table"
-    "math"
-    "attach"
+  align-items: stretch;
 }
+
+.bento.top {
+  grid-template-columns: 2fr, 1fr;
+  grid-template-areas:
+  "recap  check";
+}
+
+.bento.bottom {
+  padding-top: 0px;
+  grid-template-columns: 1fr, 2fr;
+  grid-template-areas:
+  "code   table"
+  "math   table"
+  "attach table";
+}
+
 .bento-card {
   background: var(--card);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-card);
-  min-width: 0;   /* allow grid items to shrink below their content size */
+  overflow: hidden;          /* clips the image to the rounded corners */
+  display: flex;   
 }
-.bento-recap { max-width: 542px; }
-.bento-check { max-width: 340px; }
-.bento-code, .bento-math, .bento-attach  { max-width: 342px; }
-.bento-table { width: 511px; height: 415px; }
+
+.bento-card img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;       /* see note below */
+  object-position: center;
+}
+
+.bento-recap { grid-area: recap; }
+.bento-check { grid-area: check; }
+.bento-code  { grid-area: code; }
+.bento-math  { grid-area: math;   }
+.bento-attach { grid-area: attach;  }
+.bento-table { grid-area: table;  }
 /* the three small cards live in the "small" column, stacked */
 
 /* ============================================================
@@ -541,18 +562,26 @@ mark.hl-purple { background: var(--hl-purple); color: inherit; padding: 1px 2px;
 
   .bento {
     grid-template-columns: minmax(0, 1fr);
-    grid-template-areas:
-      "recap"
-      "check"
-      "code"
-      "math"
-      "attach"
-      "table";
-    max-width: 520px;
+    
   }
+  .bento.top {
+    grid-template-areas:
+  "recap"
+  "check";    
+  }
+  .bento.bottom {
+    grid-template-areas:
+  "code"
+  "math"
+  "attach"
+  "table";    
+  }
+  .bento-recap { grid-area: recap; }
+  .bento-check { grid-area: check; }
   .bento-code  { grid-area: code; }
-  .bento-math  { grid-area: math; }
-  .bento-attach{ grid-area: attach; }
+  .bento-math  { grid-area: math;   }
+  .bento-attach { grid-area: attach;  }
+  .bento-table { grid-area: table;  }
 
   .know-card { grid-template-columns: minmax(0, 1fr); }
   .know-visual { height: 360px; padding: 44px 44px 0; }
@@ -560,6 +589,13 @@ mark.hl-purple { background: var(--hl-purple); color: inherit; padding: 1px 2px;
   .know-text { padding: 8px 44px 48px; }
 
   .more-grid { gap: 36px 40px; }
+  
+  .hero-mark {
+    left: -1.3em;
+    top: -0.85em;                   /* base just below the text baseline */
+    width: 220px;
+    height: 220px;
+  }
 }
 
 @media (max-width: 760px) {
