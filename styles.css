@@ -423,6 +423,9 @@ a { color: inherit; text-decoration: none; }
    Section 6 — Newsletter
    ============================================================ */
 .newsletter { padding-top: 0em; }
+.newsletter .btn-primary {
+    margin-top: 1em;
+}
 .newsletter .section-head { margin-bottom: 32px; }
 .signup {
   display: flex;
