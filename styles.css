@@ -236,6 +236,7 @@ a { color: inherit; text-decoration: none; }
   flex-direction: column;
   min-width: 0;
   justify-content: center;
+  width: 441px;
 }
 
 .showcase-text {
@@ -250,11 +251,10 @@ a { color: inherit; text-decoration: none; }
 }
 .showcase-visual {
   position: relative;
-  margin-top: 30px;
   overflow: hidden;
   flex: 1;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: flex-end;
 }
 
@@ -268,10 +268,7 @@ a { color: inherit; text-decoration: none; }
   pointer-events: none;
 }
 .showcase-visual img {
-  width: 80%;
   align-self: flex-end;
-  border-radius: var(--radius-md) var(--radius-md) 0 0;
-  box-shadow: var(--shadow-mock);
 }
 /* sidebar mockup bleeds off the right edge, deliberately cut off */
 .showcase-card--bleed-right .showcase-visual {
