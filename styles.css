@@ -230,7 +230,6 @@ a { color: inherit; text-decoration: none; }
 .showcase-card {
   background: var(--surface);
   border-radius: var(--radius-lg);
-  padding: 40px 20px 0;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -240,7 +239,7 @@ a { color: inherit; text-decoration: none; }
 }
 
 .showcase-text {
-  margin: 0 25px;
+  margin: 40px 40px 30px 40px;
 }
 .showcase-text h3 { font-size: var(--fs-h3); font-weight: 700; letter-spacing: -.02em; }
 .showcase-text p {
@@ -267,13 +266,9 @@ a { color: inherit; text-decoration: none; }
   background: linear-gradient(to bottom, transparent, var(--surface));
   pointer-events: none;
 }
-.showcase-visual img {
-  align-self: flex-end;
-}
 /* sidebar mockup bleeds off the right edge, deliberately cut off */
 .showcase-card--bleed-right .showcase-visual {
-  justify-content: flex-end;
-  margin-right: -40px;
+  margin-right: -1px;
 }
 .showcase-card--bleed-right .showcase-visual img {
   border-radius: var(--radius-md) 0 0 0;
@@ -353,6 +348,7 @@ a { color: inherit; text-decoration: none; }
 }
 .know-visual img {
   align-self: flex-start;
+  margin-left: -1px;
 }
 .know-visual::after {
   content: "";
