@@ -404,7 +404,7 @@ a { color: inherit; text-decoration: none; }
    ============================================================ */
 .faq { display: flex; flex-direction: column; }
 .faq-item { border-bottom: 1px solid var(--line); }
-.faq-item summary {
+.faq-item .title {
   list-style: none;
   cursor: pointer;
   padding: 26px 44px 26px 0;
