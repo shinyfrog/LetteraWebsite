@@ -19,7 +19,7 @@
 
   --accent:        #1874d3;  /* primary editorial blue */
   --accent-bright: #226cf7;  /* brighter blue, secondary emphasis */
-  --accent-hover:  #1568be;  /* darker accent for button hover */
+  --accent-hover:  #226cf7;  /* darker accent for button hover */
 
   --hl-green:  #dbfdae;
   --hl-purple: #f8dcfd;
@@ -230,12 +230,16 @@ a { color: inherit; text-decoration: none; }
 .showcase-card {
   background: var(--surface);
   border-radius: var(--radius-lg);
-  padding: 20px 20px 0;
+  padding: 40px 20px 0;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   min-width: 0;
   justify-content: center;
+}
+
+.showcase-text {
+  margin: 0 25px;
 }
 .showcase-text h3 { font-size: var(--fs-h3); font-weight: 700; letter-spacing: -.02em; }
 .showcase-text p {
@@ -330,21 +334,16 @@ a { color: inherit; text-decoration: none; }
   gap: 30px;
   overflow: hidden;
   align-items: stretch;
+  margin: 70px auto 0 auto;
 }
 .know-visual {
   position: relative;
-  height: 440px;            /* masks the tall TOC mockup, as in the design */
   overflow: hidden;
   display: flex;
   align-items: flex-start;
-  justify-content: center;
-  padding: 52px 0 0 52px;
 }
 .know-visual img {
-  width: 84%;
   align-self: flex-start;
-  border-radius: 0 var(--radius-shot) 0 0;   /* only the top-right corner is rounded, per spec */
-  box-shadow: var(--shadow-mock);
 }
 .know-visual::after {
   content: "";
@@ -354,7 +353,14 @@ a { color: inherit; text-decoration: none; }
   background: linear-gradient(to bottom, transparent, var(--surface));
   pointer-events: none;
 }
-.know-text { padding: 56px 56px 56px 0; display: flex; flex-direction: column; justify-content: center; gap: 38px; }
+.know-text { 
+  padding: 56px 120px 56px 0; 
+  display: flex; 
+  flex-direction: column; 
+  justify-content: center; 
+  gap: 80px; 
+}
+
 .know-block h3 { font-size: var(--fs-h3); font-weight: 700; color: var(--ink); }
 .know-block p { margin-top: 10px; font-size: var(--fs-body); font-weight: 500; color: var(--muted-2); }
 
@@ -402,22 +408,7 @@ a { color: inherit; text-decoration: none; }
   font-weight: 600;
   color: var(--ink);
 }
-.faq-item summary::-webkit-details-marker { display: none; }
-/* chevron, pointing down when closed */
-.faq-item summary::after {
-  content: "";
-  position: absolute;
-  right: 6px;
-  top: 50%;
-  width: 11px;
-  height: 11px;
-  border-right: 2px solid var(--muted);
-  border-bottom: 2px solid var(--muted);
-  transform: translateY(-65%) rotate(45deg);
-  transition: transform .25s var(--ease);
-}
-/* flips to point up when open */
-.faq-item[open] summary::after { transform: translateY(-30%) rotate(-135deg); }
+
 .faq-answer { padding: 0 44px 28px 0; }
 .faq-answer p { font-size: var(--fs-body); font-weight: 500; color: var(--muted-2); }
 .faq-answer a { color: var(--accent); font-weight: 600; }
@@ -530,7 +521,7 @@ a { color: inherit; text-decoration: none; }
     max-width: 902px; margin: 0 auto; }
   .know-visual { height: 360px; padding: 44px 44px 0; }
   .know-visual img { width: 66%; border-radius: var(--radius-md) var(--radius-md) 0 0; }
-  .know-text { padding: 8px 44px 48px; }
+  .know-text { padding: 8px 44px 48px; gap: 50px;}
 
   .more-grid { gap: 36px 40px; }
 }
