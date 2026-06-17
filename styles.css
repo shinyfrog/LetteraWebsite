@@ -318,8 +318,8 @@ a { color: inherit; text-decoration: none; }
 }
 
 .bento-recap { grid-area: recap; }
-.bento-check { grid-area: check; }
-.bento-code  { grid-area: code; }
+.bento-check { grid-area: check; min-width: 340px; }
+.bento-code  { grid-area: code; min-width: 342px; }
 .bento-math  { grid-area: math;   }
 .bento-attach { grid-area: attach;  }
 .bento-table { grid-area: table;  }
@@ -441,7 +441,7 @@ a { color: inherit; text-decoration: none; }
   background: #fff;
   transition: border-color .15s var(--ease), box-shadow .15s var(--ease);
 }
-.signup input::placeholder { color: var(--muted); }
+.signup input::placeholder { color: #D4DBE3; }
 .signup input:focus {
   outline: none;
   border-color: var(--accent);
@@ -506,9 +506,13 @@ a { color: inherit; text-decoration: none; }
   .section { padding: 64px 0; }
 
   .bento {
-    grid-template-columns: minmax(0, 1fr);
-    
+    display: block;
   }
+  
+  .bento-card {
+    margin: 2em 0;
+  }
+  
   .bento.top {
     grid-template-areas:
   "recap"
