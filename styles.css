@@ -530,6 +530,11 @@ a { color: inherit; text-decoration: none; }
   .know-text { padding: 8px 44px 48px; gap: 50px;}
 
   .more-grid { gap: 36px 40px; }
+  
+  .bento-check img { width: 60%; margin: 0 auto; }
+  .bento-code img { width: 60%; margin: 0 auto; }
+  .bento-math img { width: 60%; margin: 0 auto; }
+  .bento-attach img { width: 60%; margin: 0 auto; }  
 }
 
 @media (max-width: 760px) {
