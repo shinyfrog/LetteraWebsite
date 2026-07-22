@@ -148,7 +148,6 @@ a { color: inherit; text-decoration: none; }
 .hero-mark {
   position: absolute;
   display: inline-block;
-  z-index: -1;
   right: -0.31em;
   top: 0.26em;
   border-radius: 0.26em;
