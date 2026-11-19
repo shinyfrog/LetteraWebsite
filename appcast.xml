@@ -4,12 +4,12 @@
         <title>Lettera</title>
         <item>
             <title>1.0.0</title>
-            <pubDate>Wed, 18 Nov 2026 18:33:24 +0100</pubDate>
+            <pubDate>Thu, 19 Nov 2026 09:21:22 +0100</pubDate>
             <link>https://lettera.md</link>
-            <sparkle:version>4922</sparkle:version>
+            <sparkle:version>4925</sparkle:version>
             <sparkle:shortVersionString>1.0.0</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
-            <enclosure url="https://sf-applications.s3.amazonaws.com/Lettera/Lettera-1.0.0-4922.zip" length="16321676" type="application/octet-stream" sparkle:edSignature="VVj8uQoJJjhpF6WshvZqsS/oEMOTofKV1vKZxGfcalpoJRjuvIyCTw0qnitrO7TRVelpqHjpFxUA5HcySKqDDA=="/>
+            <enclosure url="https://sf-applications.s3.amazonaws.com/Lettera/Lettera-1.0.0-4925.zip" length="16337739" type="application/octet-stream" sparkle:edSignature="kOiz6PyfVMq9azm7xJQxV1KBXXpeZPktz8N0CCGGK96pjmDHIPGEnnJ77gI7F/ffWNIaJbJo1JGnR5OnxB5QAQ=="/>
         </item>
     </channel>
 </rss>
